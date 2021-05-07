@@ -1,0 +1,168 @@
+html{
+	background: linear-gradient(#f69d3c, #3f87a6);
+	height: 100%;
+	margin: 0;
+	font-family: monospace;
+}
+
+body{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: monospace;
+	min-width: 500px;
+}
+
+#divExpenses{
+	display: none;
+	justify-content: center;
+	flex-direction: row;
+}
+
+#header{
+	display: flex;
+	justify-content: center;
+
+	color: white;
+	padding: 10px;
+}
+
+#divBudget{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+#divFather{
+	display: flex;
+	flex-direction: column;
+	min-width: 500px;
+	width: 50%;
+
+	background-color: white;
+	border-radius: 20px;
+}
+
+.container{
+	margin: 50px;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+#budgetResult{
+	background-color: lightblue;
+	padding: 10px;
+	border-radius: 2px;
+	margin-top: 10px;
+}
+
+#result{
+	margin-top: 10px;
+	padding: 10px;
+	border-radius: 2px;
+}
+
+.box{
+	margin-top: 5px;
+	border: 0;
+	border-bottom: 1px solid grey;
+	outline: none;
+	width: 100%;
+}
+
+.button{
+	height: 35px;
+	width: 75px;
+	background-color: royalblue;
+	color: white;
+	border-radius: 5px;
+	border: 0;
+	font-family: monospace;
+}
+
+#budget{
+	height: 30px;
+	margin-right: 10px;
+}
+
+#setBudget{
+	margin-top: 10px;
+}
+
+#formBudget{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#outcomes{
+	display: flex;
+	flex-direction: column;
+}
+
+.paragraph{
+	border: 0.5px solid lightgrey;
+	border-radius: 2px;
+	padding: 10px;
+	margin-top: 10px;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+
+#spanExpense{
+	color: white;
+	background-color: royalblue;
+	border-radius: 20px;
+	padding-right: 7px;
+	padding-left: 7px;
+}
+
+.titles{
+	font-family: monospace;
+	font-size: 18px;
+	font-weight: lighter;
+}
+
+#newBudget{
+	margin-top: 10px;
+	text-decoration: underline;
+}
+
+#line{
+	display: none;
+}
+
+@media screen and (max-width: 780px){
+	#divExpenses{
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.container{
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+
+	#list{
+		margin-top: 0;
+		margin-bottom: 10px;
+	}
+
+	#mistake{
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	#line{
+	display: block;
+	width: 100%;
+	height: 1px;
+	background-color: lightgrey;
+	}
+
+
+}
