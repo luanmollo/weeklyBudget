@@ -4,6 +4,21 @@ let expenses;
 let balance;
 let bigArray = [];
 let arrayExpenses = [];
+let mediaQueryMobile = window.matchMedia("(max-width: 780px)");
+
+document.getElementById("budget").focus();
+
+function removeFocus(arg){
+	document.getElementById(arg).blur();
+}
+
+function putFocus(arg){
+	document.getElementById(arg).focus()
+}
+
+if(mediaQueryMobile.matches){
+	removeFocus("budget");
+}
 
 let showBudget = document.getElementById("showBudget");
 let p = document.getElementById("setBudget");
@@ -32,6 +47,10 @@ function getBudget(){
 	document.getElementById("formBudget").style.display = "none"
 	document.getElementById("name").focus();
 
+	if(mediaQueryMobile.matches){
+		removeFocus("name");
+	}
+
 	result.innerHTML = "Balance: $" + budget;
 	budgetResult.innerHTML = "Presupuesto: $" + budget;
 
@@ -54,11 +73,37 @@ let m = document.getElementById("expenses");
 m.addEventListener("keyup", enterExpense);
 
 function enterExpense(event){
-	if(event.keyCode === 13){
-	event.preventDefault();
-	document.getElementById("addExpense").click();
+	if(mediaQueryMobile.matches){
+		if(event.keyCode === 13){
+			if(!!document.getElementById("name").value == true){
+				if(!!document.getElementById("expenses").value == true){
+					event.preventDefault();
+					document.getElementById("addExpense").click();
+				}
+				else{
+					event.preventDefault();
+					document.getElementById("expenses").focus();
+				}
+			}
+			else if(!!document.getElementById("expenses").value == true){
+				mistake.innerHTML = "Hay campos sin llenar";
+				document.getElementById("name").focus();
+				document.getElementById("name").style.borderBottom = "1px solid pink"
+			}
+			else if(!!document.getElementById("name").value == false && !!document.getElementById("expenses").value == false){
+				mistake.innerHTML = "Hay campos sin llenar";
+				document.getElementById("name").focus();
+				document.getElementById("name").style.borderBottom = "1px solid pink";
+				document.getElementById("expenses").style.borderBottom = "1px solid pink";
+			}
+		}
+	}
+	else if(event.keyCode === 13){
+		event.preventDefault();
+		document.getElementById("addExpense").click();
 	}
 }
+
 
 let result = document.getElementById("result");
 let mistake = document.getElementById("mistake")
@@ -68,7 +113,7 @@ let totalExpenses = document.getElementById("totalExpenses");
 let budgetResult = document.getElementById("budgetResult");
 
 function setExpense(){
-	
+
 	document.getElementById("name").focus();
 	document.getElementById("name").style.borderBottom = "1px solid lightgrey";
 	document.getElementById("expenses").style.borderBottom = "1px solid lightgrey";
